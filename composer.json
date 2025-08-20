@@ -1,5 +1,5 @@
 {
-    "name": "norkunas/youtube-dl-php",
+    "name": "eswyft/youtube-dl-php",
     "type": "library",
     "description": "youtube-dl / yt-dlp wrapper for php",
     "keywords": ["youtube", "youtube-dl", "yt-dlp"],
