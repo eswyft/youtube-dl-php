@@ -224,7 +224,7 @@ class YoutubeDl
                 continue;
             }
 
-            if (str_starts_with($line, '[info] Thumbnails for')) {
+            if (preg_match('/^\[info\] (Available t|T)humbnails for/', $line)) {
                 $parsing = 'table_header';
             } elseif ($parsing === 'table_header') {
                 $header = $line;
