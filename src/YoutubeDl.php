@@ -207,7 +207,7 @@ class YoutubeDl
     /**
      * @param non-empty-string $url
      *
-     * @return list<Thumbnail>
+     * @return Thumbnail[]
      */
     public function listThumbnails(string $url): array
     {
@@ -342,5 +342,27 @@ class YoutubeDl
         }
 
         return $list;
+    }
+
+    /**
+     * Extract video ids from playlist or channel.
+     * @param non-empty-string $url List URL.
+     * @param ?non-empty-string $items Comma separated playlist_index of the items
+     * to list. You can specify a range using "[START]:[STOP][:STEP]".
+     * Use negative indices to count from the right and negative STEP to list
+     * in reverse order.
+     * @return string[]
+     */
+    public function flatPlaylist(string $url, ?string $items): array
+    {
+        $args = [ '--flat-playlist', '--print', 'id', $url, ];
+        if (null !== $items && strlen($items) > 0) {
+            $args[] = '--playlist-items';
+            $args[] = $items;
+        }
+        $process = $this->processBuilder->build($this->binPath, $this->pythonPath, $args);
+        $process->mustRun();
+
+        return array_map(static fn(string $row) => trim($row), array_filter(explode("\n", $process->getOutput())));
     }
 }
