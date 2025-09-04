@@ -38,29 +38,29 @@ class YoutubeDl
 {
     public const PROGRESS_PATTERN = '#\[download\]\s+(?<percentage>\d+(?:\.\d+)?%)\s+of\s+(?<size>[~]?[\s\d]*\d+(?:\.\d+)?(?:KiB|MiB|GiB|B))(?:\s+at\s+(?<speed>(\d+(?:\.\d+)?(?:K|M|G)iB/s)|Unknown speed))?(?:\s+ETA\s+(?<eta>([\d:]{2,8}|Unknown ETA)))?(\s+in\s+(?<totalTime>[\d:]{2,8}))?#i';
 
-    private ProcessBuilderInterface $processBuilder;
-    private MetadataReaderInterface $metadataReader;
-    private Filesystem $filesystem;
+    protected ProcessBuilderInterface $processBuilder;
+    protected MetadataReaderInterface $metadataReader;
+    protected Filesystem $filesystem;
 
     /**
      * @var non-empty-string|null
      */
-    private ?string $binPath = null;
+    protected ?string $binPath = null;
 
     /**
      * @var non-empty-string|null
      */
-    private ?string $pythonPath = null;
+    protected ?string $pythonPath = null;
 
     /**
      * @var callable
      */
-    private $progress;
+    protected $progress;
 
     /**
      * @var callable
      */
-    private $debug;
+    protected $debug;
 
     public function __construct(?ProcessBuilderInterface $processBuilder = null, ?MetadataReaderInterface $metadataReader = null, ?Filesystem $filesystem = null)
     {
