@@ -72,4 +72,11 @@ final class OptionsTest extends TestCase
 
         Options::create()->output('/var/downloads');
     }
+
+    public function testExtendOutput(): void
+    {
+        $options = (new Fixtures\OptionsExtended())->toArray();
+
+        self::assertArrayHasKey('preset-alias', $options);
+    }
 }
