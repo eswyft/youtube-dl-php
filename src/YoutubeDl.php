@@ -109,7 +109,7 @@ class YoutubeDl
     {
         $urls = $options->getUrl();
 
-        if (count($urls) === 0) {
+        if ($urls === []) {
             throw new NoUrlProvidedException('Missing configured URL to download.');
         }
 
@@ -159,13 +159,11 @@ class YoutubeDl
                 $progressTarget = basename($match['file']);
             }
 
-            if (preg_match_all(static::PROGRESS_PATTERN, $buffer, $matches, PREG_SET_ORDER) !== false) {
-                if (count($matches) > 0) {
-                    $progress = $this->progress;
+            if (preg_match_all(static::PROGRESS_PATTERN, $buffer, $matches, PREG_SET_ORDER) !== false && $matches !== []) {
+                $progress = $this->progress;
 
-                    foreach ($matches as $progressMatch) {
-                        $progress($progressTarget, $progressMatch['percentage'], $progressMatch['size'], $progressMatch['speed'] ?? null, $progressMatch['eta'] ?? null, $progressMatch['totalTime'] ?? null);
-                    }
+                foreach ($matches as $progressMatch) {
+                    $progress($progressTarget, $progressMatch['percentage'], $progressMatch['size'], $progressMatch['speed'] ?? null, $progressMatch['eta'] ?? null, $progressMatch['totalTime'] ?? null);
                 }
             }
         });
