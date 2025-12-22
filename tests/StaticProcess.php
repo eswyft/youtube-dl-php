@@ -56,7 +56,7 @@ class StaticProcess extends Process
         }
 
         foreach ($output as $line) {
-            $callback('', $line);
+            $callback('out', $line);
         }
 
         if ($this->writeMetadata !== null) {
