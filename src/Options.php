@@ -238,7 +238,7 @@ class Options
     /**
      * @var int|'infinite'|null
      */
-    private int|string|null $extractorRetries;
+    private int|string|null $extractorRetries = null;
     private bool $allowDynamicMpd = false;
     private bool $hlsSplitDiscontinuity = false;
     private bool $noJsRuntimes = false;
