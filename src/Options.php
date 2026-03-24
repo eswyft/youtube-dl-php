@@ -11,6 +11,7 @@ use function array_values;
 use function in_array;
 use function str_contains;
 
+/** @phpstan-consistent-constructor */
 class Options
 {
     // @deprecated
@@ -250,7 +251,7 @@ class Options
      */
     private array $url = [];
 
-    private function __construct()
+    public function __construct()
     {
     }
 

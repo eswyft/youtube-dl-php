@@ -6,7 +6,6 @@ namespace YoutubeDl\Process;
 
 use YoutubeDl\Options;
 
-use function count;
 use function is_array;
 use function is_bool;
 
@@ -30,7 +29,7 @@ class ArgvBuilder
                         $cmd[] = $url;
                     }
                 } elseif ($option === 'playlist-items' || $option === 'sub-lang' || $option === 'format-sort') {
-                    if (count($value) > 0) {
+                    if ($value !== []) {
                         $cmd[] = sprintf('--%s=%s', $option, implode(',', $value));
                     }
                 } elseif ($option === 'add-header' || $option === 'extractor-args') {
