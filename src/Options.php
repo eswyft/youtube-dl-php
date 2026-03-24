@@ -241,6 +241,11 @@ class Options
     private int|string|null $extractorRetries;
     private bool $allowDynamicMpd = false;
     private bool $hlsSplitDiscontinuity = false;
+    private bool $noJsRuntimes = false;
+    /**
+     * @var non-empty-string[]
+     */
+    private ?array $jsRuntimes = null;
     /**
      * @var array<non-empty-string, string>
      */
@@ -1756,6 +1761,41 @@ class Options
     }
 
     /**
+     * Clear JavaScript runtimes to enable, including defaults and those
+     * provided by previous --js-runtimes.
+     *
+     * @see Options::jsRuntimes()
+     */
+    public function noJsRuntimes(bool $noJsRuntimes): self
+    {
+        $new = clone $this;
+        $new->noJsRuntimes = $noJsRuntimes;
+
+        return $new;
+    }
+
+    /**
+     * Additional JavaScript runtime to enable, with an optional location for
+     * the runtime (either the path to the binary or its containing directory).
+     * Supported runtimes are (in order of priority, from highest to lowest):
+     * deno, node, quickjs, bun.
+     *
+     * Only "deno" is enabled by default. The highest priority runtime that is
+     * both enabled and available will be used. In order to use a lower priority
+     * runtime when "deno" is available, --no-js-runtimes needs to be passed
+     * before enabling other runtimes.
+     *
+     * @see Options::noJsRuntimes()
+     */
+    public function jsRuntimes(array $jsRuntimes): self
+    {
+        $new = clone $this;
+        $new->jsRuntimes = $jsRuntimes;
+
+        return $new;
+    }
+
+    /**
      * Pass args for a single extractor.
      *
      * @see https://github.com/yt-dlp/yt-dlp?tab=readme-ov-file#extractor-arguments
@@ -1952,6 +1992,8 @@ class Options
             'extractor-retries' => $this->extractorRetries,
             'allow-dynamic-mpd' => $this->allowDynamicMpd,
             'hls-split-discontinuity' => $this->hlsSplitDiscontinuity,
+            'no-js-runtimes' => $this->noJsRuntimes,
+            'js-runtimes' => $this->jsRuntimes,
             'extractor-args' => $this->extractorArgs,
 
             'url' => $this->url,
