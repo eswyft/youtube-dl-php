@@ -53,12 +53,12 @@ class YoutubeDl
     protected ?string $pythonPath = null;
 
     /**
-     * @var callable
+     * @var callable(?string $progressTarget, string $percentage, string $size, ?string $speed, ?string $eta, ?string $totalTime):void
      */
     protected $progress;
 
     /**
-     * @var callable
+     * @var callable(string $type, string $buffer):void
      */
     protected $debug;
 
@@ -91,6 +91,9 @@ class YoutubeDl
         return $this;
     }
 
+    /**
+     * @param callable(?string $progressTarget, string $percentage, string $size, ?string $speed, ?string $eta, ?string $totalTime):void $onProgress
+     */
     public function onProgress(callable $onProgress): self
     {
         $this->progress = $onProgress;
@@ -98,6 +101,9 @@ class YoutubeDl
         return $this;
     }
 
+    /**
+     * @param callable(string $type, string $buffer):void $debug
+     */
     public function debug(callable $debug): self
     {
         $this->debug = $debug;

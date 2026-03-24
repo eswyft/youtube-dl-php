@@ -16,10 +16,7 @@ class Comment extends AbstractEntity
         return $this->get('author_id');
     }
 
-    /**
-     * @return mixed
-     */
-    public function getId()
+    public function getId(): mixed
     {
         return $this->get('id');
     }
@@ -39,10 +36,7 @@ class Comment extends AbstractEntity
         return $this->get('timestamp');
     }
 
-    /**
-     * @return mixed
-     */
-    public function getParent()
+    public function getParent(): mixed
     {
         return $this->get('parent');
     }

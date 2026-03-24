@@ -89,7 +89,8 @@ class Video extends AbstractEntity
 
     public function getTimestamp(): ?int
     {
-        return $this->get('timestamp');
+        $v = $this->get('timestamp');
+        return null === $v ? null : (int) $v;
     }
 
     public function getUploadDate(): ?DateTimeInterface
@@ -119,7 +120,8 @@ class Video extends AbstractEntity
 
     public function getChannelFollowerCount(): ?int
     {
-        return $this->get('channel_follower_count');
+        $v = $this->get('channel_follower_count');
+        return null === $v ? null : (int) $v;
     }
 
     public function getLocation(): ?string
@@ -129,57 +131,67 @@ class Video extends AbstractEntity
 
     public function getDuration(): ?float
     {
-        return $this->get('duration');
+        $v = $this->get('duration');
+        return null === $v ? null : (float) $v;
     }
 
     public function getViewCount(): ?int
     {
-        return $this->get('view_count');
+        $v = $this->get('view_count');
+        return null === $v ? null : (int) $v;
     }
 
     public function getLikeCount(): ?int
     {
-        return $this->get('like_count');
+        $v = $this->get('like_count');
+        return null === $v ? null : (int) $v;
     }
 
     public function getDislikeCount(): ?int
     {
-        return $this->get('dislike_count');
+        $v = $this->get('dislike_count');
+        return null === $v ? null : (int) $v;
     }
 
     public function getRepostCount(): ?int
     {
-        return $this->get('repost_count');
+        $v = $this->get('repost_count');
+        return null === $v ? null : (int) $v;
     }
 
     public function getAverageRating(): ?float
     {
-        return $this->get('average_rating');
+        $v = $this->get('average_rating');
+        return null === $v ? null : (float) $v;
     }
 
     public function getCommentCount(): ?int
     {
-        return $this->get('comment_count');
+        $v = $this->get('comment_count');
+        return null === $v ? null : (int) $v;
     }
 
     public function getAgeLimit(): ?int
     {
-        return $this->get('age_limit');
+        $v = $this->get('age_limit');
+        return null === $v ? null : (int) $v;
     }
 
     public function getIsLive(): bool
     {
-        return $this->get('is_live', false);
+        return (bool) $this->get('is_live', false);
     }
 
     public function getStartTime(): ?int
     {
-        return $this->get('start_time');
+        $v = $this->get('start_time');
+        return null === $v ? null : (int) $v;
     }
 
     public function getEndTime(): ?int
     {
-        return $this->get('end_time');
+        $v = $this->get('end_time');
+        return null === $v ? null : (int) $v;
     }
 
     public function getFormat(): ?string
@@ -199,12 +211,14 @@ class Video extends AbstractEntity
 
     public function getWidth(): ?int
     {
-        return $this->get('width');
+        $v = $this->get('width');
+        return null === $v ? null : (int) $v;
     }
 
     public function getHeight(): ?int
     {
-        return $this->get('height');
+        $v = $this->get('height');
+        return null === $v ? null : (int) $v;
     }
 
     public function getResolution(): ?string
@@ -214,12 +228,14 @@ class Video extends AbstractEntity
 
     public function getTbr(): ?float
     {
-        return $this->get('tbr');
+        $v = $this->get('tbr');
+        return null === $v ? null : (float) $v;
     }
 
     public function getAbr(): ?int
     {
-        return $this->get('abr');
+        $v = $this->get('abr');
+        return null === $v ? null : (int) $v;
     }
 
     public function getAcodec(): ?string
@@ -229,7 +245,8 @@ class Video extends AbstractEntity
 
     public function getAsr(): ?int
     {
-        return $this->get('asr');
+        $v = $this->get('asr');
+        return null === $v ? null : (int) $v;
     }
 
     public function getVbr(): ?string
@@ -239,7 +256,8 @@ class Video extends AbstractEntity
 
     public function getFps(): ?float
     {
-        return $this->get('fps');
+        $v = $this->get('fps');
+        return null === $v ? null : (float) $v;
     }
 
     public function getVcodec(): ?string
@@ -254,12 +272,14 @@ class Video extends AbstractEntity
 
     public function getFilesize(): ?int
     {
-        return $this->get('filesize');
+        $v = $this->get('filesize');
+        return null === $v ? null : (int) $v;
     }
 
     public function getFilesizeApprox(): ?int
     {
-        return $this->get('filesize_approx');
+        $v = $this->get('filesize_approx');
+        return null === $v ? null : (int) $v;
     }
 
     public function getProtocol(): ?string
@@ -279,12 +299,14 @@ class Video extends AbstractEntity
 
     public function getEpoch(): ?int
     {
-        return $this->get('epoch');
+        $v = $this->get('epoch');
+        return null === $v ? null : (int) $v;
     }
 
     public function getAutoNumber(): ?int
     {
-        return $this->get('autonumber');
+        $v = $this->get('autonumber');
+        return null === $v ? null : (int) $v;
     }
 
     public function getPlaylist(): ?string
@@ -294,7 +316,8 @@ class Video extends AbstractEntity
 
     public function getPlaylistIndex(): ?int
     {
-        return $this->get('playlist_index');
+        $v = $this->get('playlist_index');
+        return null === $v ? null : (int) $v;
     }
 
     public function getPlaylistId(): ?string
@@ -324,7 +347,8 @@ class Video extends AbstractEntity
 
     public function getChapterNumber(): ?int
     {
-        return $this->get('chapter_number');
+        $v = $this->get('chapter_number');
+        return null === $v ? null : (int) $v;
     }
 
     public function getChapterId(): ?string
@@ -344,7 +368,8 @@ class Video extends AbstractEntity
 
     public function getSeasonNumber(): ?int
     {
-        return $this->get('season_number');
+        $v = $this->get('season_number');
+        return null === $v ? null : (int) $v;
     }
 
     public function getSeasonId(): ?string
@@ -359,7 +384,8 @@ class Video extends AbstractEntity
 
     public function getEpisodeNumber(): ?int
     {
-        return $this->get('episode_number');
+        $v = $this->get('episode_number');
+        return null === $v ? null : (int) $v;
     }
 
     public function getEpisodeId(): ?string
@@ -374,7 +400,8 @@ class Video extends AbstractEntity
 
     public function getTrackNumber(): ?int
     {
-        return $this->get('track_number');
+        $v = $this->get('track_number');
+        return null === $v ? null : (int) $v;
     }
 
     public function getTrackId(): ?string
@@ -409,7 +436,8 @@ class Video extends AbstractEntity
 
     public function getDiscNumber(): ?int
     {
-        return $this->get('disc_number');
+        $v = $this->get('disc_number');
+        return null === $v ? null : (int) $v;
     }
 
     public function getReleaseYear(): ?string
@@ -431,7 +459,7 @@ class Video extends AbstractEntity
     }
 
     /**
-     * @return list<Subtitles>
+     * @return Subtitles[]
      */
     public function getSubtitles(): array
     {
@@ -439,7 +467,7 @@ class Video extends AbstractEntity
     }
 
     /**
-     * @return list<Subtitles>
+     * @return Subtitles[]
      */
     public function getRequestedSubtitles(): array
     {
@@ -447,7 +475,7 @@ class Video extends AbstractEntity
     }
 
     /**
-     * @return list<Subtitles>
+     * @return Subtitles[]
      */
     public function getAutomaticCaptions(): array
     {
@@ -466,11 +494,12 @@ class Video extends AbstractEntity
 
     public function getStretchedRatio(): ?float
     {
-        return $this->get('stretched_ratio');
+        $v = $this->get('stretched_ratio');
+        return null === $v ? null : (float) $v;
     }
 
     /**
-     * @return list<Category>
+     * @return Category[]
      */
     public function getCategories(): array
     {
@@ -478,7 +507,7 @@ class Video extends AbstractEntity
     }
 
     /**
-     * @return list<Thumbnail>
+     * @return Thumbnail[]
      */
     public function getThumbnails(): array
     {
@@ -496,7 +525,7 @@ class Video extends AbstractEntity
     }
 
     /**
-     * @return list<Format>
+     * @return Format[]
      */
     public function getFormats(): array
     {
@@ -504,7 +533,7 @@ class Video extends AbstractEntity
     }
 
     /**
-     * @return list<Format>
+     * @return Format[]
      */
     public function getRequestedFormats(): array
     {
@@ -513,12 +542,14 @@ class Video extends AbstractEntity
 
     public function getNEntries(): ?int
     {
-        return $this->get('n_entries');
+        $v = $this->get('n_entries');
+        return null === $v ? null : (int) $v;
     }
 
     public function getPreference(): ?int
     {
-        return $this->get('preference');
+        $v = $this->get('preference');
+        return null === $v ? null : (int) $v;
     }
 
     public function getFile(): SplFileInfo
@@ -532,7 +563,7 @@ class Video extends AbstractEntity
     }
 
     /**
-     * @return list<Comment>
+     * @return Comment[]
      */
     public function getComments(): array
     {
@@ -540,7 +571,7 @@ class Video extends AbstractEntity
     }
 
     /**
-     * @return list<string>
+     * @return string[]
      */
     public function getTags(): array
     {

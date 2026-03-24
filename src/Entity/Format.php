@@ -41,7 +41,8 @@ class Format extends AbstractEntity
 
     public function getAbr(): ?int
     {
-        return $this->get('abr');
+        $v = $this->get('abr');
+        return null === $v ? null : (int) $v;
     }
 
     public function getPlayerUrl(): ?string
@@ -56,7 +57,8 @@ class Format extends AbstractEntity
 
     public function getPreference(): ?int
     {
-        return $this->get('preference');
+        $v = $this->get('preference');
+        return null === $v ? null : (int) $v;
     }
 
     public function getFormatId(): ?string
@@ -71,32 +73,38 @@ class Format extends AbstractEntity
 
     public function getWidth(): ?int
     {
-        return $this->get('width');
+        $v = $this->get('width');
+        return null === $v ? null : (int) $v;
     }
 
     public function getHeight(): ?int
     {
-        return $this->get('height');
+        $v = $this->get('height');
+        return null === $v ? null : (int) $v;
     }
 
     public function getAsr(): ?int
     {
-        return $this->get('asr');
+        $v = $this->get('asr');
+        return null === $v ? null : (int) $v;
     }
 
     public function getTbr(): ?float
     {
-        return $this->get('tbr');
+        $v = $this->get('tbr');
+        return null === $v ? null : (float) $v;
     }
 
     public function getFps(): ?float
     {
-        return $this->get('fps');
+        $v =  $this->get('fps');
+        return null === $v ? null : (float) $v;
     }
 
     public function getFilesize(): ?int
     {
-        return $this->get('filesize');
+        $v = $this->get('filesize');
+        return null === $v ? null : (int) $v;
     }
 
     public function getResolution(): ?string
@@ -106,7 +114,8 @@ class Format extends AbstractEntity
 
     public function getVbr(): ?int
     {
-        return $this->get('vbr');
+        $v = $this->get('vbr');
+        return null === $v ? null : (int) $v;
     }
 
     public function getProtocol(): ?string
@@ -116,26 +125,30 @@ class Format extends AbstractEntity
 
     public function getLanguagePreference(): ?int
     {
-        return $this->get('language_preference');
+        $v = $this->get('language_preference');
+        return null === $v ? null : (int) $v;
     }
 
     public function getQuality(): ?int
     {
-        return $this->get('quality');
+        $v = $this->get('quality');
+        return null === $v ? null : (int) $v;
     }
 
     public function getSourcePreference(): ?int
     {
-        return $this->get('source_preference');
+        $v = $this->get('source_preference');
+        return null === $v ? null : (int) $v;
     }
 
     public function getStretchedRatio(): ?float
     {
-        return $this->get('stretched_ratio');
+        $v = $this->get('stretched_ratio');
+        return null === $v ? null : (float) $v;
     }
 
     public function getNoResume(): bool
     {
-        return $this->get('no_resume');
+        return (bool) $this->get('no_resume', false);
     }
 }

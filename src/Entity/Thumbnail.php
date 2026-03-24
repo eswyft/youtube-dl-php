@@ -18,20 +18,20 @@ class Thumbnail extends AbstractEntity
 
     public function getPreference(): ?int
     {
-        $p = $this->get('preference');
-        return null === $p ? null : intval($p);
+        $v = $this->get('preference');
+        return null === $v ? null : (int) $v;
     }
 
     public function getWidth(): ?int
     {
-        $w = $this->get('width');
-        return 'unknown' === $w ? null : intval($w);
+        $v = $this->get('width');
+        return 'unknown' === $v ? null : (int) $v;
     }
 
     public function getHeight(): ?int
     {
-        $h = $this->get('height');
-        return 'unknown' === $h ? null : intval($h);
+        $v = $this->get('height');
+        return 'unknown' === $v ? null : (int) $v;
     }
 
     public function getResolution(): ?string

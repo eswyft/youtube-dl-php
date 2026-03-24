@@ -12,7 +12,7 @@ class SubListItem extends AbstractEntity
     }
 
     /**
-     * @return list<non-empty-string>
+     * @return non-empty-string[]
      */
     public function getFormats(): array
     {
@@ -21,6 +21,6 @@ class SubListItem extends AbstractEntity
 
     public function isAutoCaption(): bool
     {
-        return $this->get('auto_caption', false);
+        return (bool) $this->get('auto_caption', false);
     }
 }
